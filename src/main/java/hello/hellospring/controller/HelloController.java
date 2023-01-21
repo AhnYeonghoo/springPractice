@@ -33,6 +33,36 @@ public class HelloController {
         return hello;
     }
 
+    @GetMapping("hello-website")
+    @ResponseBody
+    public Human helloHuman(@RequestParam("name") String name, @RequestParam("age") int age) {
+        Human human = new Human();
+        human.setName(name);
+        human.setAge(age);
+        return human;
+    }
+
+    static class Human {
+        private String name;
+        private int age;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+    }
+
     static class Hello {
         private String name;
 
